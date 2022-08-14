@@ -32,7 +32,7 @@ namespace CSharp.Properties
             public int attack;
         }
 
-        public static void Main(string[] args)
+        public static void Main_TextRPG1(string[] args)
         {
             while (true)
             {

@@ -39,8 +39,23 @@ namespace CSharp
             // Divide(num1, num2, out get, out set);
             // Console.WriteLine($"{num1} 나누기 {num2}의 몫은 {get}이고 나머지는 {set}이다.");
 
-            Console.WriteLine(Add(1, 2, e: 7.2));
+            //Console.WriteLine(Add(1, 2, e: 7.2));
+
+            string name = "Mizue Lee";
             
+            // 1. 찾기(조회)
+            bool found = name.Contains("Mizu");
+            int index = name.IndexOf('z');
+            
+            // 2. 변형
+            name = name + " Lover";
+            string lowerName = name.ToLower();
+            string upperName = name.ToUpper();
+            string newName = name.Replace("Lover", "Love");
+            
+            // 3. 분할
+            string[] names = name.Split(new char[] {' '});
+            string substringName = name.Substring(6);
         }
         
         // 디폴트 값 중 하나만 지정하여 넣는 것도 가능하다
