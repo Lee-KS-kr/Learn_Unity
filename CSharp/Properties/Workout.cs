@@ -4,7 +4,7 @@ namespace CSharp.Properties
 {
     public class Workout
     {
-        public static void Main(string[] args)
+        public static void Main_Workout(string[] args)
         {
             int ret = Factorial(11);
             Console.WriteLine(ret);
