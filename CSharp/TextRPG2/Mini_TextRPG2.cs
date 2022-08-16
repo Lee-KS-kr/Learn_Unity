@@ -19,7 +19,7 @@ namespace CSharp
 
     public class Mini_TextRPG2
     {
-        public static void Main(string[] args)
+        public static void Main_TextRPG2(string[] args)
         {
             Game game = new Game();
             Console.WriteLine("~\tTEXT RPG\t~");
