@@ -1,0 +1,6 @@
+D:\Git Fork\Learn_Unity\Algorithm\Algorithm\bin\Debug\Algorithm.exe
+D:\Git Fork\Learn_Unity\Algorithm\Algorithm\bin\Debug\Algorithm.pdb
+D:\Git Fork\Learn_Unity\Algorithm\Algorithm\obj\Debug\Algorithm.csproj.AssemblyReference.cache
+D:\Git Fork\Learn_Unity\Algorithm\Algorithm\obj\Debug\Algorithm.csproj.CoreCompileInputs.cache
+D:\Git Fork\Learn_Unity\Algorithm\Algorithm\obj\Debug\Algorithm.exe
+D:\Git Fork\Learn_Unity\Algorithm\Algorithm\obj\Debug\Algorithm.pdb
