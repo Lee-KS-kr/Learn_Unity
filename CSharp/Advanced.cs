@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Runtime.Remoting.Messaging;
 
 namespace CSharp
@@ -100,6 +101,7 @@ namespace CSharp
 
         class Item
         {
+            [Important("Very Important")]
             public string itemName;
             public ItemType itemType;
             public Rarity rarity;
@@ -120,6 +122,17 @@ namespace CSharp
             Rare,
         }
 
+        class Important : System.Attribute
+        {
+            // 컴퓨터가 런타임에 체크할 수 있는 주석같은 것..
+            string message;
+
+            public Important(string message)
+            {
+                this.message = message;
+            }
+        }
+
         static List<Item> _items = new List<Item>();
         
         delegate bool ItemSelector(Item item);
@@ -137,8 +150,91 @@ namespace CSharp
             //LectureEvent();
 
             //LectureLambda();
+
+            //LectureError();
+
+            //LectureReflection();
+
+            // LectureNullable();
+        }
+
+        static void LectureNullable()
+        {
+            // Null + albe
+            int? number = null;
             
+            // 문제점 -> null값인 변수를 참조하려고 하면 크래시가 난다
+            // 참조하려는 변수가 null인지, 혹은 값을 가지고 있는지(HasValue) 체크해야 한다
+            if (number != null)
+            {
+                int a;
+                a = number.Value;
+            }
             
+            // 이것 때문에 생겨난 문법 -> ??
+            // 참조하려는 변수가 null이 아니면 참조값을 넣고, null이면 뒤의 값을 초기값으로 넣어라.
+            int b = number ?? 0;
+            // int c = (number != null) ? number : 0; 와 같은 의미
+        }
+
+        static void LectureReflection()
+        {
+            // 리플렉션 : 엑스레이를 찍는 것이다...
+            // 런타임중에 모든 정보를 뜯어 볼 수 있다.
+
+            Item item = new Item();
+            var type = item.GetType();
+            var fileds = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic |
+                                       BindingFlags.Static | BindingFlags.Instance);
+
+            foreach (var VARIABLE in fileds)
+            {
+                string access = $"protected";
+                if (VARIABLE.IsPublic)
+                    access = "public";
+                else if (VARIABLE.IsPrivate)
+                    access = "private";
+
+                var attribute = VARIABLE.GetCustomAttributes();
+                Console.WriteLine($"{access} {VARIABLE.FieldType.Name} {VARIABLE.Name}");
+            }
+        }
+
+        static void LectureError()
+        {
+            // 예외 처리
+            try
+            {
+                // 0으로 나눌 때
+                // 잘못된 메모리를 참조(null, 잘못된 캐스팅)
+                // 오버플로우 등
+
+                throw new TestException();
+
+                int a = 10;
+                int b = 0;
+                int result = a / b;
+
+                // 위에서 에러가 걸리면 그 아래로는 애려오지 않는다
+                int c = 0;
+            }
+            catch (DivideByZeroException e)
+            {
+
+            }
+            catch (Exception e)
+            {
+
+            }
+            finally
+            {
+                // 이 안에서 무조건 실행되어야 하는 것이 있다면 이곳에서
+            }
+        }
+
+        class TestException : Exception
+        {
+            // 커스텀 예외도 만들 수 있다.
         }
 
         delegate Return MyFunc<T, Return>(T item);
