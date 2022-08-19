@@ -1,0 +1,14 @@
+D:\Git Fork\Learn_Unity\Algorithm\Exercise\bin\Debug\netcoreapp3.1\Exercise.exe
+D:\Git Fork\Learn_Unity\Algorithm\Exercise\bin\Debug\netcoreapp3.1\Exercise.deps.json
+D:\Git Fork\Learn_Unity\Algorithm\Exercise\bin\Debug\netcoreapp3.1\Exercise.runtimeconfig.json
+D:\Git Fork\Learn_Unity\Algorithm\Exercise\bin\Debug\netcoreapp3.1\Exercise.runtimeconfig.dev.json
+D:\Git Fork\Learn_Unity\Algorithm\Exercise\bin\Debug\netcoreapp3.1\Exercise.dll
+D:\Git Fork\Learn_Unity\Algorithm\Exercise\bin\Debug\netcoreapp3.1\Exercise.pdb
+D:\Git Fork\Learn_Unity\Algorithm\Exercise\obj\Debug\netcoreapp3.1\Exercise.csproj.AssemblyReference.cache
+D:\Git Fork\Learn_Unity\Algorithm\Exercise\obj\Debug\netcoreapp3.1\Exercise.GeneratedMSBuildEditorConfig.editorconfig
+D:\Git Fork\Learn_Unity\Algorithm\Exercise\obj\Debug\netcoreapp3.1\Exercise.AssemblyInfoInputs.cache
+D:\Git Fork\Learn_Unity\Algorithm\Exercise\obj\Debug\netcoreapp3.1\Exercise.AssemblyInfo.cs
+D:\Git Fork\Learn_Unity\Algorithm\Exercise\obj\Debug\netcoreapp3.1\Exercise.csproj.CoreCompileInputs.cache
+D:\Git Fork\Learn_Unity\Algorithm\Exercise\obj\Debug\netcoreapp3.1\Exercise.dll
+D:\Git Fork\Learn_Unity\Algorithm\Exercise\obj\Debug\netcoreapp3.1\Exercise.pdb
+D:\Git Fork\Learn_Unity\Algorithm\Exercise\obj\Debug\netcoreapp3.1\Exercise.genruntimeconfig.cache
