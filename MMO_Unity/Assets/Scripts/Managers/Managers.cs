@@ -20,6 +20,12 @@ public class Managers : MonoBehaviour
     {
         get => Instance._input;
     }
+
+    private ResourceManager _resourceManager = new ResourceManager();
+    public static ResourceManager ResourceManager
+    {
+        get => Instance._resourceManager;
+    }
     
     // Start is called before the first frame update
     void Start()
