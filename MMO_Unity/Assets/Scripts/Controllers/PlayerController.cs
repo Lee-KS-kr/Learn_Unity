@@ -8,11 +8,16 @@ public class PlayerController : MonoBehaviour
     private float _speed = 10.0f;
 
     private float _yAngle = 0;
+
+    private Vector3 _destPos;
+    private bool _moveToDest = false;
     
     void Start()
     {
         Managers.Input.KeyAction -= OnKeyboard;
+        Managers.Input.MouseAction -= OnMouseClicked;
         Managers.Input.KeyAction += OnKeyboard;
+        Managers.Input.MouseAction += OnMouseClicked;
     }
 
     void Update()
@@ -31,6 +36,21 @@ public class PlayerController : MonoBehaviour
         //     transform.position += transform.TransformDirection(Vector3.left * Time.deltaTime * _speed);
         // if (Input.GetKey(KeyCode.D))
         //     transform.position += transform.TransformDirection(Vector3.right * Time.deltaTime * _speed);
+        if (_moveToDest)
+        {
+            Vector3 dir = _destPos - transform.position;
+            if (dir.magnitude < 0.01f)
+            {
+                _moveToDest = false;
+            }
+            else
+            {
+                float moveDist = Mathf.Clamp(_speed * Time.deltaTime, 0, dir.magnitude);
+                transform.rotation =
+                    Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 10 * Time.deltaTime);
+                transform.position += dir.normalized * moveDist;
+            }
+        }
     }
 
     private void OnKeyboard()
@@ -61,6 +81,26 @@ public class PlayerController : MonoBehaviour
             //transform.rotation = Quaternion.LookRotation(Vector3.right);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(Vector3.right), 0.5f);
             transform.position += transform.TransformDirection(Vector3.forward * Time.deltaTime * _speed);
+        }
+
+        _moveToDest = false;
+    }
+
+    private void OnMouseClicked(Define.MouseEvent evt)
+    {
+        if (evt != Define.MouseEvent.Click) return;
+        
+        // Debug.Log($"OnMouseClicked!");
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Debug.DrawRay(Camera.main.transform.position, ray.direction * 100f, Color.yellow, 1.0f);
+        RaycastHit hit;
+        int mask = 1 << 9;
+
+        if (Physics.Raycast(ray, out hit, 100f, mask)) 
+        {
+            // Debug.Log($"Raycast Camera @ {hit.collider.gameObject.name}");
+            _destPos = hit.point;
+            _moveToDest = true;
         }
     }
 }
