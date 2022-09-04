@@ -49,11 +49,6 @@ public class PlayerController : MonoBehaviour
         anime.SetFloat($"speed", _speed);
     }
 
-    private void OnRunEvent(int num)
-    {
-        Debug.Log($"뚜벅 뚜벅 {num}");
-    }
-
     void UpdateDie()
     {
 
