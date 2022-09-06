@@ -9,6 +9,11 @@ public static class Extension
     public static void AddUIEvent(this GameObject obj, Action<PointerEventData> action,
         Define.UIEvent type = Define.UIEvent.Click)
     {
-        UI_Base.AddUIEvent(obj, action, type);
+        UI_Base.BindEvent(obj, action, type);
+    }
+    
+    public static T GetOrAddComponent<T>(this GameObject obj) where T : UnityEngine.Component
+    {
+        return Util.GetOrAddComponent<T>(obj);
     }
 }
