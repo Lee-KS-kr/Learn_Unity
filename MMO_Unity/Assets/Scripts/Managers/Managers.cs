@@ -18,6 +18,7 @@ public class Managers : MonoBehaviour
     private InputManager _input = new InputManager();
     private ResourceManager _resourceManager = new ResourceManager();
     private UIManager _ui = new UIManager();
+    private SceneManagerEx _scene = new SceneManagerEx();
     
     public static InputManager Input
     {
@@ -30,6 +31,10 @@ public class Managers : MonoBehaviour
     public static UIManager UI
     {
         get => Instance._ui;
+    }
+    public static SceneManagerEx Scene
+    {
+        get => Instance._scene;
     }
     
     void Start()
