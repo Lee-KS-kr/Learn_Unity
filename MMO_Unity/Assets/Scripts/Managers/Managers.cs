@@ -19,6 +19,7 @@ public class Managers : MonoBehaviour
     private ResourceManager _resourceManager = new ResourceManager();
     private UIManager _ui = new UIManager();
     private SceneManagerEx _scene = new SceneManagerEx();
+    private SoundManager _sound = new SoundManager();
     
     public static InputManager Input
     {
@@ -35,6 +36,10 @@ public class Managers : MonoBehaviour
     public static SceneManagerEx Scene
     {
         get => Instance._scene;
+    }
+    public static SoundManager Sound
+    {
+        get => Instance._sound;
     }
     
     void Start()
@@ -61,6 +66,15 @@ public class Managers : MonoBehaviour
 
             DontDestroyOnLoad(obj);
             instance = obj.GetComponent<Managers>();
+            instance._sound.Init();
         }
+    }
+
+    public static void Clear()
+    {
+        Input.Clear();
+        Sound.Clear();
+        UI.Clear();
+        Scene.Clear();
     }
 }
